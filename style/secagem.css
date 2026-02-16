@@ -1,0 +1,461 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+
+
+body {
+    background-color: #03020A;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.menu {
+    position: fixed;
+    left: 15px;
+    top: 15px;
+    width: 80px;
+    height: calc(100vh - 30px);
+    background-color: #151515;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    gap: 25px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: inherit; 
+}
+
+.menu-item {
+    width: 56px;
+    height: 56px;             
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #aaa;
+    font-size: 11px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 500;
+}
+
+.menu-item img {
+    width: 24px;
+    height: 24px;
+}
+
+.menu-item.active {
+    background-color: #EDEDED;
+    color: #000;
+}
+
+
+.dashboard {
+    margin-left: 125px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr;    
+    gap: 15px;
+    height: calc(100vh - 40px);  
+    box-sizing: border-box;
+}
+
+.card {
+    background: linear-gradient(180deg, #1A1A1A, #0E0E0E);
+    border-radius: 18px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+
+.card canvas {
+    flex-grow: 1;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 15px;
+}
+/* CARD DE ESTATÍSTICAS */
+.stats-card {
+    padding: 20px; /* Padding único para o card inteiro */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Cria um espaçamento padrão entre o seletor e o grid */
+}
+
+.stats-card .selection-date {
+    padding: 0; 
+    display: flex;
+    justify-content: flex-start; /* Mantém à esquerda, agora alinhado com o grid */
+}
+
+/* HEADER COM DATA */
+.card-header {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.card-header .date {
+    background-color: #0e0e0e;
+    padding: 8px 14px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-header img {
+    width: 14px;
+    opacity: 0.8;
+}
+
+/* INPUT DATAS */
+.selection-date {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
+    gap: 10px;
+    padding: 15px 20px 10px 20px;
+    align-items: center;
+}
+
+/* Estilização do Select */
+.selection-date select {
+    background-color: #0e0e0e; /* Fundo escuro igual aos mini-cards */
+    color: #ffffff;
+    border: 1px solid #333; /* Borda sutil */
+    border-radius: 8px;
+    padding: 6px 32px 6px 12px; /* Espaço extra na direita para a seta customizada */
+    font-size: 13px;
+    font-family: 'Josefin Sans', sans-serif;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    
+    /* Remove a seta padrão do navegador */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* Adiciona uma seta customizada (SVG branco) */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 14px;
+}
+
+/* Efeito de Hover e Focus */
+.selection-date select:hover {
+    border-color: #555;
+    background-color: #151515;
+}
+
+.selection-date select:focus {
+    border-color: #00b3ff; /* Cor de destaque (azul igual ao SOMA) */
+    box-shadow: 0 0 0 2px rgba(0, 179, 255, 0.2);
+}
+
+/* Estilização das opções (limitado pelo navegador, mas ajuda no contraste) */
+.selection-date select option {
+    background-color: #151515;
+    color: #fff;
+    padding: 10px;
+}
+
+.input-dinamico campoDia{
+    display: none; 
+    background-color: #0e0e0e;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-family: 'Josefin Sans', sans-serif;
+    outline: none;
+}
+
+.input-dinamico {
+    display: none; 
+    background-color: #0e0e0e;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-family: 'Josefin Sans', sans-serif;
+    outline: none;
+}
+
+/* Ajuste específico para o input de data (ícone do calendário) */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+/* Foco nos inputs */
+.input-dinamico:focus {
+    border-color: #00b3ff;
+}
+
+/* GRID DOS MINI-CARDS */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 15px; /* Espaçamento entre os mini-cards */
+    flex-grow: 1;
+}
+
+/* MINI-CARD */
+.stat-box {
+    position: relative;
+    background: linear-gradient(180deg, #101010, #0b0b0b);
+    border-radius: 14px;
+    padding: 10px 15px;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* BARRA COLORIDA LATERAL */
+.stat-box::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    bottom: 12px;
+    width: 6px;
+    border-radius: 6px;
+}
+
+/* TEXTO */
+.stat-box .label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+.stat-box .value {
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+/* CORES */
+.stat-count::before {
+    background-color: #ffffff;
+}
+
+.stat-count .label,
+.stat-count .value {
+    color: #ffffff;
+}
+
+.stat-max::before {
+    background-color: #1aff00;
+}
+
+.stat-max .label,
+.stat-max .value {
+    color: #1aff00;
+}
+
+.stat-sum::before {
+    background-color: #00b3ff;
+}
+
+.stat-sum .label,
+.stat-sum .value {
+    color: #00b3ff;
+}
+
+.stat-min::before {
+    background-color: #ffd500;
+}
+
+.stat-min .label,
+.stat-min .value {
+    color: #ffd500;
+}
+
+
+.register {
+    margin-left: 125px;
+    padding: 20px;
+    width: calc(100% - 125px); /* Ocupa todo o espaço até o menu */
+}
+
+.register h1 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 45px;
+    font-weight: 700;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+/* TABELA */
+.table {
+    width: 100%;
+    background-color: #151515;
+    border-radius: 14px;
+    padding: 15px;
+}
+
+/* Container do filtro */
+.filtro-tabela{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+/* Label no padrão da tabela */
+.filtro-tabela .filter-label{
+    color: #bbb;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Input no padrão DataTables */
+.filtro-tabela .filter-input{
+    background-color: #0e0e0e;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 12px;
+    outline: none;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover */
+.filtro-tabela .filter-input:hover{
+    border-color: #555;
+}
+
+/* Focus (igual busca do DataTables) */
+.filtro-tabela .filter-input:focus{
+    border-color: #777;
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.05);
+}
+
+/* Ajuste do ícone do input date (Chrome/Edge) */
+.filtro-tabela .filter-input::-webkit-calendar-picker-indicator{
+    filter: invert(1);
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+table.dataTable {
+    width: 100% !important;
+    margin: 0;
+    color: #fff;
+    background-color: transparent;
+    border-collapse: collapse;
+}
+
+table.dataTable thead th {
+    background-color: #1f1f1f;
+    color: #fff;
+    border-bottom: none;
+}
+
+table.dataTable tbody tr {
+    background-color: #151515;
+}
+
+table.dataTable tbody tr:nth-child(even) {
+    background-color: #1a1a1a;
+}
+
+thead .filters input {
+    width: 100%;
+    padding: 6px;
+    background-color: #0e0e0e;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+thead .filters input::placeholder {
+    color: #777;
+}
+
+/* Paginação e busca */
+.dataTables_wrapper .dataTables_filter input,
+.dataTables_wrapper .dataTables_length select {
+    background-color: #0e0e0e;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 6px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    color: #fff !important;
+}
+
+@media (max-width: 1200px) {
+    .dashboard, .register {
+        margin-left: 100px;
+        width: calc(100% - 100px);
+    }
+    
+    .dashboard {
+        grid-template-columns: repeat(2, 1fr); /* Mantém 2 colunas */
+    }
+}
+
+/* Celulares (Ajustes de escala para não quebrar o 2x2) */
+@media (max-width: 768px) {
+    .menu {
+        width: 60px; /* Menu mais estreito para sobrar espaço */
+    }
+
+    .dashboard, .register {
+        margin-left: 75px; /* Diminui a margem para dar espaço aos cards */
+        padding: 10px;
+        width: calc(100% - 75px);
+    }
+
+    .dashboard {
+        grid-template-columns: repeat(2, 1fr); /* Mantém 2 colunas mesmo no mobile */
+        gap: 10px;
+    }
+
+    /* Diminuindo textos dos mini-cards para caberem lado a lado no celular */
+    .stat-box {
+        padding: 10px;
+        height: 70px;
+    }
+
+    .stat-box .value {
+        font-size: 18px; /* Texto menor para caber no grid 2x2 */
+    }
+
+    .stat-box .label {
+        font-size: 9px;
+    }
+
+    .stats-grid {
+        gap: 8px;
+    }
+}

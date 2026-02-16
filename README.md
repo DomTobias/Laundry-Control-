@@ -1,4 +1,4 @@
-Laundry Control
+**Laundry Control**
 
 Sistema desenvolvido em PHP para auxiliar a gerência no controle e análise das informações do setor de Laundry Production.
 

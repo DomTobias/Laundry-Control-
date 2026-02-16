@@ -1,0 +1,27 @@
+# Dependências
+vendor/
+
+# Arquivos sensíveis
+.env
+config.php
+
+# Logs
+*.log
+
+# Arquivos temporários
+*.tmp
+*.cache
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Banco local
+*.sql
+
+# Node (se usar JS com pacotes)
+node_modules/

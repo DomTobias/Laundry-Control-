@@ -33,6 +33,13 @@
             </div>
         </a>
 
+        <a href="dosagem.php">
+            <div class="menu-item">
+                <img src="../icons/doser.png" alt="Dosagem">
+                <span>Dosagem</span>
+            </div>
+        </a>
+
         <div class="menu-item active">
             <img src="../icons/info_selection.png" alt="Informações">
             <span>Info</span>

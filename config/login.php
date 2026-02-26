@@ -27,5 +27,5 @@ if ($usuario === $usuario_env && $senha === $senha_env) {
     exit;
 }
 
-header('Location: index.php?erro=1');
+header('Location: ../index.php?erro=1');
 exit;

@@ -35,7 +35,14 @@
             <span>Pesagem</span>
         </div>
 
-        <a href="info.php">
+        <a href="dosagem.php">
+            <div class="menu-item">
+                <img src="../icons/doser.png" alt="Informações">
+                <span>Dosagem</span>
+            </div>
+        </a>
+
+            <a href="info.php">
             <div class="menu-item">
                 <img src="../icons/info.png" alt="Informações">
                 <span>Info</span>

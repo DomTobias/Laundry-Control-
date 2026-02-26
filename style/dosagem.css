@@ -1,0 +1,969 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+
+body {
+    background-color: #03020A;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    display: flex;
+}
+
+/* Menu Lateral */
+.menu {
+    position: fixed;
+    left: 15px;
+    top: 15px;
+    width: 80px;
+    height: calc(100vh - 30px);
+    background-color: #151515;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    gap: 25px;
+    z-index: 100;
+}
+
+.menu a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu-item {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #aaa;
+    font-size: 11px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 500;
+}
+
+.menu-item img {
+    width: 24px;
+    height: 24px;
+}
+
+.menu-item.active {
+    background-color: #EDEDED;
+    color: #151515;
+}
+
+/* Área de Conteúdo Principal */
+.main-content {
+    margin-left: 110px;
+    padding: 30px;
+    width: calc(100% - 110px);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 40px;
+}
+
+/* Container Principal */
+.dashboard-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Seção de Gráfico com Título e Formulário Dentro */
+.chart-section {
+    background-color: #111111;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+}
+
+.chart-section h1 {
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 24px;
+    margin: 0;
+}
+
+/* Header do Chart Section com Título e Select */
+.chart-header {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.chart-header h1 {
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 24px;
+    margin: 0;
+}
+
+/* Estilização da Caixa de Seleção */
+.select-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.custom-select {
+    background-color: #000000;
+    color: white;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    min-width: 150px;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 40px;
+}
+
+.custom-select:focus {
+    border-color: #555;
+    background-color: #1a1a1a;
+}
+
+/* Container dos Cards das Máquinas */
+.cards-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    width: 100%;
+}
+
+/* Estilização do Card Maquina */
+.maq1 {
+    background-color: #03020A;
+    border: solid 2px white;
+    color: white;
+    height: 130px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    min-width: 250px;
+    max-width: 280px;
+}
+
+.maq1:hover {
+    transform: translateY(-5px);
+    background-color: #1c1c1c;
+}
+
+.maq1 h2 {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+    color: #aaa;
+}
+
+.maq1 p {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+}
+
+/* Grid de Gauges */
+.gauge-grid {
+    width: 100%;
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 20px;
+}
+
+.gauge-card {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 240px;
+    width: calc(20% - 20px); 
+    min-width: 200px; 
+}
+
+/* Título do Gauge */
+.gauge-card h3 {
+    color: #aaa;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+
+/* Canvas do Gauge */
+.gauge-card canvas {
+    width: 100%;
+    height: 180px;
+    max-width: 160px;
+}
+
+.gauge-card:hover {
+    transform: translateY(-5px);
+    background-color: #252525;
+}
+
+/* Container para Gráficos de Coluna e Linha */
+.maq {
+    width: 100%;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 450px;
+}
+
+.column_maq {
+    min-height: 500px;
+}
+
+.maq canvas {
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+}
+
+/* ===== ESTILOS DA TABELA ===== */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 12px;
+    background-color: #1a1a1a;
+}
+
+.table-general {
+    width: 100%;
+    border-collapse: collapse;
+    color: #fff;
+    background-color: transparent;
+}
+
+/* Header da Tabela */
+.table-general thead {
+    background-color: #1f1f1f;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.table-general thead th {
+    padding: 16px 20px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    border-bottom: 2px solid #333;
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+/* Corpo da Tabela */
+.table-general tbody tr {
+    background-color: #151515;
+    border-bottom: 1px solid #2a2a2a;
+    transition: all 0.3s ease;
+}
+
+.table-general tbody tr:nth-child(even) {
+    background-color: #1a1a1a;
+}
+
+.table-general tbody tr:hover {
+    background-color: #1f1f1f;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+}
+
+/* Células da Tabela */
+.table-general tbody td {
+    padding: 14px 20px;
+    font-size: 13px;
+    color: #ddd;
+    font-weight: 400;
+}
+
+/* TABELA - Compatibilidade com DataTables */
+.table {
+    width: 100%;
+    background-color: #151515;
+    border-radius: 14px;
+    padding: 15px;
+}
+
+/* Container do filtro */
+.filtro-tabela {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+/* Label no padrão da tabela */
+.filtro-tabela .filter-label {
+    color: #bbb;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Input no padrão DataTables */
+.filtro-tabela .filter-input {
+    background-color: #0e0e0e;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 12px;
+    outline: none;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover */
+.filtro-tabela .filter-input:hover {
+    border-color: #555;
+}
+
+/* Focus (igual busca do DataTables) */
+.filtro-tabela .filter-input:focus {
+    border-color: #777;
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.05);
+}
+
+/* Ajuste do ícone do input date (Chrome/Edge) */
+.filtro-tabela .filter-input::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+table.dataTable {
+    width: 100% !important;
+    margin: 0;
+    color: #fff;
+    background-color: transparent;
+    border-collapse: collapse;
+}
+
+table.dataTable thead th {
+    background-color: #1f1f1f;
+    color: #fff;
+    border-bottom: none;
+}
+
+table.dataTable tbody tr {
+    background-color: #151515;
+}
+
+table.dataTable tbody tr:nth-child(even) {
+    background-color: #1a1a1a;
+}
+
+thead .filters input {
+    width: 100%;
+    padding: 6px;
+    background-color: #0e0e0e;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+thead .filters input::placeholder {
+    color: #777;
+}
+
+/* Scrollbar customizada */
+.table-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 10px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+/* ===== RESPONSIVIDADE UNIFORME ===== */
+
+/* Desktop Grande (1920px+) */
+@media (min-width: 1920px) {
+    .main-content {
+        margin-left: 110px;
+        padding: 40px;
+        gap: 50px;
+    }
+
+    .chart-section {
+        padding: 40px;
+        gap: 30px;
+    }
+
+    .chart-header h1 {
+        font-size: 28px;
+    }
+
+    .gauge-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 25px;
+    }
+
+    .gauge-card {
+        min-height: 280px;
+        padding: 25px;
+    }
+
+    .gauge-card h3 {
+        font-size: 16px;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 25px;
+    }
+
+    .maq1 {
+        height: 150px;
+    }
+
+    .maq1 h2 {
+        font-size: 18px;
+    }
+
+    .maq1 p {
+        font-size: 32px;
+    }
+
+    .maq {
+        min-height: 550px;
+    }
+
+    .column_maq {
+        min-height: 600px;
+    }
+
+    .table-general thead th {
+        padding: 18px 25px;
+        font-size: 15px;
+    }
+
+    .table-general tbody td {
+        padding: 16px 25px;
+        font-size: 14px;
+    }
+
+    .custom-select {
+        min-width: 160px;
+        padding: 12px 18px;
+        padding-right: 45px;
+        font-size: 15px;
+    }
+}
+
+/* Desktop Padrão (1366px - 1919px) */
+@media (min-width: 1366px) and (max-width: 1919px) {
+    .main-content {
+        margin-left: 110px;
+        padding: 30px;
+        gap: 40px;
+    }
+
+    .chart-section {
+        padding: 30px;
+        gap: 25px;
+    }
+
+    .chart-header h1 {
+        font-size: 24px;
+    }
+
+    .gauge-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+    }
+
+    .gauge-card {
+        min-height: 240px;
+        padding: 20px;
+    }
+
+    .gauge-card h3 {
+        font-size: 14px;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+    }
+
+    .maq1 {
+        height: 130px;
+    }
+
+    .maq1 h2 {
+        font-size: 16px;
+    }
+
+    .maq1 p {
+        font-size: 28px;
+    }
+
+    .maq {
+        min-height: 450px;
+    }
+
+    .column_maq {
+        min-height: 500px;
+    }
+
+    .table-general thead th {
+        padding: 16px 20px;
+        font-size: 14px;
+    }
+
+    .table-general tbody td {
+        padding: 14px 20px;
+        font-size: 13px;
+    }
+
+    .custom-select {
+        min-width: 150px;
+        padding: 10px 15px;
+        padding-right: 40px;
+        font-size: 14px;
+    }
+}
+
+/* Tablet Grande (1024px - 1365px) */
+@media (min-width: 1024px) and (max-width: 1365px) {
+    .main-content {
+        margin-left: 110px;
+        padding: 25px;
+        gap: 35px;
+    }
+
+    .chart-section {
+        padding: 25px;
+        gap: 20px;
+    }
+
+    .chart-header h1 {
+        font-size: 22px;
+    }
+
+    .gauge-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+    }
+
+    .gauge-card {
+        min-height: 220px;
+        padding: 18px;
+    }
+
+    .gauge-card h3 {
+        font-size: 13px;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+    }
+
+    .maq1 {
+        height: 120px;
+    }
+
+    .maq1 h2 {
+        font-size: 15px;
+    }
+
+    .maq1 p {
+        font-size: 26px;
+    }
+
+    .maq {
+        min-height: 400px;
+    }
+
+    .column_maq {
+        min-height: 450px;
+    }
+
+    .table-general thead th {
+        padding: 14px 16px;
+        font-size: 13px;
+    }
+
+    .table-general tbody td {
+        padding: 12px 16px;
+        font-size: 12px;
+    }
+
+    .custom-select {
+        min-width: 140px;
+        font-size: 13px;
+    }
+}
+
+/* Tablet Pequeno (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .main-content {
+        margin-left: 100px;
+        padding: 20px;
+        gap: 30px;
+    }
+
+    .chart-section {
+        padding: 20px;
+        gap: 18px;
+    }
+
+    .chart-header h1 {
+        font-size: 20px;
+    }
+
+    .gauge-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+    .gauge-card {
+        min-height: 200px;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .gauge-card h3 {
+        font-size: 12px;
+    }
+
+    .gauge-card canvas {
+        max-width: 130px;
+        height: 160px !important;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+    .maq1 {
+        height: 110px;
+    }
+
+    .maq1 h2 {
+        font-size: 14px;
+    }
+
+    .maq1 p {
+        font-size: 24px;
+    }
+
+    .maq {
+        min-height: 350px;
+    }
+
+    .column_maq {
+        min-height: 400px;
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+    .table-general thead th {
+        padding: 12px 14px;
+        font-size: 12px;
+    }
+
+    .table-general tbody td {
+        padding: 10px 14px;
+        font-size: 11px;
+    }
+
+    .custom-select {
+        min-width: 130px;
+        padding: 8px 12px;
+        padding-right: 35px;
+        font-size: 12px;
+    }
+
+    .menu {
+        width: 70px;
+        gap: 15px;
+    }
+
+    .menu-item {
+        width: 50px;
+        height: 50px;
+    }
+
+    .menu-item img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Mobile Grande (480px - 767px) */
+@media (min-width: 480px) and (max-width: 767px) {
+    .main-content {
+        margin-left: 85px;
+        padding: 15px;
+        gap: 25px;
+    }
+
+    .chart-section {
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .chart-header h1 {
+        font-size: 18px;
+    }
+
+    .gauge-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .gauge-card {
+        min-height: 180px;
+        padding: 12px;
+        gap: 8px;
+    }
+
+    .gauge-card h3 {
+        font-size: 11px;
+    }
+
+    .gauge-card canvas {
+        max-width: 110px;
+        height: 140px !important;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .maq1 {
+        height: 100px;
+    }
+
+    .maq1 h2 {
+        font-size: 13px;
+    }
+
+    .maq1 p {
+        font-size: 22px;
+    }
+
+    .maq {
+        min-height: 300px;
+    }
+
+    .column_maq {
+        min-height: 350px;
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .table-general {
+        min-width: 600px;
+    }
+
+    .table-general thead th {
+        padding: 10px 12px;
+        font-size: 11px;
+    }
+
+    .table-general tbody td {
+        padding: 8px 12px;
+        font-size: 10px;
+    }
+
+    .custom-select {
+        min-width: 120px;
+        padding: 7px 10px;
+        padding-right: 32px;
+        font-size: 11px;
+    }
+
+    .menu {
+        width: 65px;
+        gap: 12px;
+    }
+
+    .menu-item {
+        width: 48px;
+        height: 48px;
+    }
+
+    .menu-item img {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Mobile Pequeno (até 479px) */
+@media (max-width: 479px) {
+    .main-content {
+        margin-left: 75px;
+        padding: 12px;
+        gap: 20px;
+    }
+
+    .chart-section {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .chart-header h1 {
+        font-size: 16px;
+    }
+
+    .gauge-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .gauge-card {
+        min-height: 160px;
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .gauge-card h3 {
+        font-size: 10px;
+    }
+
+    .gauge-card canvas {
+        max-width: 100px;
+        height: 120px !important;
+    }
+
+    .cards-grid {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .maq1 {
+        height: 90px;
+    }
+
+    .maq1 h2 {
+        font-size: 12px;
+    }
+
+    .maq1 p {
+        font-size: 20px;
+    }
+
+    .maq {
+        min-height: 250px;
+    }
+
+    .column_maq {
+        min-height: 300px;
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .table-general {
+        min-width: 500px;
+        font-size: 10px;
+    }
+
+    .table-general thead th {
+        padding: 8px 10px;
+        font-size: 10px;
+    }
+
+    .table-general tbody td {
+        padding: 6px 10px;
+        font-size: 9px;
+    }
+
+    .custom-select {
+        min-width: 110px;
+        padding: 6px 8px;
+        padding-right: 30px;
+        font-size: 10px;
+    }
+
+    .menu {
+        width: 60px;
+        left: 10px;
+        top: 10px;
+        height: calc(100vh - 20px);
+        gap: 10px;
+    }
+
+    .menu-item {
+        width: 45px;
+        height: 45px;
+    }
+
+    .menu-item img {
+        width: 16px;
+        height: 16px;
+    }
+
+    .menu-item {
+        font-size: 9px;
+    }
+}

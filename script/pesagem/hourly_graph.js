@@ -14,15 +14,46 @@ document.addEventListener('DOMContentLoaded', () => {
                 fill: true,
                 tension: 0.4,
                 borderColor: '#2196F3',
-                backgroundColor: 'rgba(33, 150, 243, 0.2)'
+                backgroundColor: 'rgba(33, 150, 243, 0.2)',
+                pointRadius: 4,
+                pointHoverRadius: 6
             }]
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false,
+            maintainAspectRatio: false, // ESSENCIAL
+            layout: {
+                padding: {
+                    top: 10,
+                    bottom: 10,
+                    left: 5,
+                    right: 15
+                }
+            },
             scales: {
-                y: { beginAtZero: true },
-                x: { grid: { display: false } }
+                y: { 
+                    beginAtZero: true,
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)' // Melhora visibilidade no fundo escuro
+                    },
+                    ticks: {
+                        color: '#aaa'
+                    }
+                },
+                x: { 
+                    grid: { display: false },
+                    ticks: {
+                        color: '#aaa'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#fff',
+                        font: { size: 12 }
+                    }
+                }
             }
         }
     });

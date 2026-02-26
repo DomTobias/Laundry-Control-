@@ -1,13 +1,32 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="./style/style.css">
     <link rel="icon" type="image/x-icon" href="icons/laundry.png">
     <title>Laundry Control</title>
 </head>
 <body>
+
+    <!-- Verificação de Erro de Login -->
+    <?php if (isset($_GET['erro']) && $_GET['erro'] == 1): ?>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function( ) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Acesso Negado',
+                    text: 'Usuário ou senha incorretos. Por favor, tente novamente.',
+                    confirmButtonColor: '#00b3ff',
+                    background: '#151515',
+                    color: '#fff'
+                });
+            });
+        </script>
+    <?php endif; ?>
 
     <div class="login-container">
         <div class="card login-card">

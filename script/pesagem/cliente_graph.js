@@ -37,13 +37,16 @@ let clienteChart = new Chart(ctx, {
     options: {
         responsive: true,
         maintainAspectRatio: false,
+        layout: {
+            padding: 10 // Adiciona um respiro interno para o motor do Chrome
+        },
         cutout: '65%',
         plugins: {
             legend: {
                 position: 'bottom',
                 labels: {
                     color: '#fff',
-                    // Oculta a legenda se não houver dados
+                    padding: 20, // Espaçamento da legenda para não colar no gráfico
                     generateLabels: (chart) => {
                         const data = chart.data.datasets[0].data;
                         if (!data || data.length === 0 || !data.some(v => v > 0)) return [];
